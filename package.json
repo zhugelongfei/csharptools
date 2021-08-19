@@ -10,6 +10,5 @@
     "url": "git@www.lonfee.cn:/git/com.lonfee.unity.package.tools.git",
     "revision": "HEAD"
   },
-  "hideInEditor": false,
-  "type": "libirary"
+  "hideInEditor": false
 }
