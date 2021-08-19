@@ -1,6 +1,6 @@
 {
   "name": "com.lonfee.unity.package.tools",
-  "displayName": "Lonfee's Tools",
+  "displayName": "Lonfee Tools",
   "description": "Runtime tools for unity.\n1:EventSystem",
   "version": "1.0.0",
   "unity": "2019.4",
@@ -10,5 +10,9 @@
     "url": "git@www.lonfee.cn:/git/com.lonfee.unity.package.tools.git",
     "revision": "HEAD"
   },
-  "hideInEditor": false
+  "hideInEditor": false,
+  "author": {
+    "name": "Lonfee",
+    "email": "18519720472@163.com"
+  }
 }
