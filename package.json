@@ -1,16 +1,15 @@
 {
-  "name": "com.lonfee.unity.package.tools",
+  "name": "com.lonfee.tools",
+  "version": "1.0.0",
   "displayName": "Lonfee CSharp Tools",
   "description": "Runtime tools for unity.\n1:EventSystem",
-  "version": "1.0.0",
-  "unity": "2019.4",
-  "relatedPackages": {},
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:zhugelongfei/csharptools.git",
-    "revision": "HEAD"
-  },
   "hideInEditor": false,
+  "dependencies": {
+    
+  },
+  "keywords": [
+    "Event"
+  ],
   "author": {
     "name": "Lonfee",
     "email": "18519720472@163.com"
