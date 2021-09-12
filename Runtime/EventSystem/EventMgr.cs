@@ -8,7 +8,7 @@ namespace Lonfee.EventSystem
         private const int EVENT_CAPACITY_DEFAULT_COUNT = 2;
 
         private static Dictionary<Type, List<Delegate>> eventMap = new Dictionary<Type, List<Delegate>>();
-        private static List<Delegate> eventCache = new List<Delegate>(8);
+        private static Stack<List<Delegate>> eventCacheStack = new Stack<List<Delegate>>();
 
         public static void RegisterEvent<T>(Action<T> callback)
         {
@@ -36,10 +36,15 @@ namespace Lonfee.EventSystem
             if (!eventMap.ContainsKey(type))
                 return;
 
+            if(eventCacheStack.Count == 0)
+                eventCacheStack.Push(new List<Delegate>(4));
+
             // call delegate
-            eventCache.AddRange(eventMap[type]);
-            eventCache.ForEach(callback => { if (callback != null) { callback.DynamicInvoke(data); } });
-            eventCache.Clear();
+            List<Delegate> cacheList = eventCacheStack.Pop();
+            cacheList.AddRange(eventMap[type]);
+            cacheList.ForEach(callback => { if (callback != null) { callback.DynamicInvoke(data); } });
+            cacheList.Clear();
+            eventCacheStack.Push(cacheList);
         }
 
         public static void Clear()
